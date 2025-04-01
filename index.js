@@ -84,11 +84,28 @@ console.log ('----------------');
 calcularImc (){
 return this.peso/ (this.altura*this.altura);
 }
+classificarImc(){
+	const imc = this.calcularImc();
+    if (imc < 18.5){
+	return ('Condição:abaixo do peso');
+} else if (imc >= 18.5 && imc < 25 ){
+	return ('Condição:Peso Normal');
+}else if (imc >=25 && imc < 30 ){
+	return ('Condição:acima do Peso');
+}else if (imc >= 30 && imc < 40){
+	return ('Obeso');
+} else {
+	return ('Condição:Obesidade Grave')
+}
+}
 }
 //Criando Pessoas de acordo com caracteres definidos
 const jose = new Pessoa('Jose',70,1.75);
 console.log ('Eu Jose tenho IMC de ',jose.calcularImc().toFixed(2));
-const laura = new Pessoa ('Laura',35,1.40)
+console.log(jose.classificarImc());
+
+const laura = new Pessoa ('Laura',35,1.35)
 //Chamando nome na string
 console.log ('Eu',laura.nome,' tenho IMC de ',laura.calcularImc().toFixed(2))
+console.log(laura.classificarImc());
 }
